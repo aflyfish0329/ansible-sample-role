@@ -1,0 +1,18 @@
+---
+- name: required command | after
+  become: True
+  become_user: "{{ input_user | default('root') }}"
+  become_method: sudo
+  shell: "{{ item.command }}"
+  args:
+    chdir: "{{ item.chdir | default('/tmp') }}"
+  with_items:
+    - "{{ command_after }}"
+  when:
+    command_after != []
+  register: command_after_output
+
+- name: required command output
+  debug:
+    msg:
+      "{{ command_after_output }}"

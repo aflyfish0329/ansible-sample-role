@@ -1,0 +1,5 @@
+---
+- name: systemd daemon_reload
+  systemd:
+    daemon_reload: "{{ item.systemd_daemon_reload | default('no') }}"
+  when: systemd_daemon_reload == yes

@@ -1,0 +1,11 @@
+---
+# check vars yml exist | <roles_name>
+- name: check vars yml exist | <roles_name>
+  local_action: stat path="{{ role_path }}/vars/default_variables.yml"
+  register: vars_yml
+
+# include vars yml if exist | <roles_name>
+- name: reset default variables | <roles_name>
+  include_vars: "{{ role_path }}/vars/default_variables.yml"
+  when: vars_yml.stat.exists == True
+    

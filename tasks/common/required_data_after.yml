@@ -1,0 +1,24 @@
+---
+# required data after | <roles_name>
+- name: required data after | <roles_name>
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: "{{ item.owner }}"
+    group: "{{ item.group }}"
+    mode: "{{ item.mode }}"
+  with_items:
+    - "{{ required_data_after }}"
+  when: required_data_after != []
+
+# required data after | template | <roles_name>
+- name: required data after | template | <roles_name>
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: "{{ item.owner }}"
+    group: "{{ item.group }}"
+    mode: "{{ item.mode }}"
+  with_items:
+    - "{{ required_data_template_after }}"
+  when: required_data_template_after != []

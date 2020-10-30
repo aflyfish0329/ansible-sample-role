@@ -1,0 +1,26 @@
+---
+# cleanup | local
+- name: cleanup | local
+  become: True
+  become_user: root
+  become_method: sudo
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items:
+    - "{{ cleanup_local }}"
+  when: cleanup_local != []
+  run_once: true
+  delegate_to: localhost
+
+# cleanup | remote
+- name: cleanup | remote
+  become: True
+  become_user: root
+  become_method: sudo
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items:
+    - "{{ cleanup_remote }}"
+  when: cleanup_remote != []
