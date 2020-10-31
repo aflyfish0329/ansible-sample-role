@@ -1,0 +1,6 @@
+---
+required_directory: "{{ docker_ce_required_directory }}"
+
+required_package: "{{ docker_ce_required_package }}"
+
+service: "{{ docker_ce_service }}"

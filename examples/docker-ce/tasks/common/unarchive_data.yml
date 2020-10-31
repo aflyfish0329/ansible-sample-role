@@ -1,0 +1,10 @@
+---
+# unarchive data
+- name: unarchive data
+  unarchive:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    remote_src: "{{ item.remote_src | default('no') }}"
+  with_items:
+    - "{{ unarchive_data }}"
+  when: unarchive_data != []

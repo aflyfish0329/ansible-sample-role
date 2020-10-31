@@ -1,0 +1,11 @@
+---
+# make
+- name: Build 'all' target with extra arguments
+  make:
+    chdir: "{{ item.chdir }}"
+    target: "{{ item.target }}"
+    params:
+      "{{ item.params | default('omit') }}"
+  with_items:
+    - "{{ required_make }}"
+  when: required_make != []

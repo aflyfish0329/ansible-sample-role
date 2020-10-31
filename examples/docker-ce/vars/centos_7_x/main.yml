@@ -1,0 +1,5 @@
+---
+centos_7_x_required_package:
+- name: epel-release
+
+docker_ce_repo: "https://download.docker.com/linux/centos/docker-ce.repo"

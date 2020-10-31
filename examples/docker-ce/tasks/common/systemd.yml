@@ -1,0 +1,8 @@
+---
+- name: update systemd status | docker-ce
+  systemd:
+    name: "{{ item.name }}"
+    enabled: "{{ item.enabled | default('yes') }}"
+  with_items:
+    - "{{ service }}"
+  when: service != []

@@ -1,0 +1,18 @@
+---
+- name: required command | before
+  become: True
+  become_user: "{{ command_before_become_user if command_before_become_user != '' | default(omit) }}"
+  become_method: sudo
+  shell: "{{ item.command }}"
+  args:
+    chdir: "{{ item.chdir | default(omit) }}"
+  with_items:
+    - "{{ command_before }}"
+  when:
+    command_before != []
+  register: command_before_output
+
+- name: required command output
+  debug:
+    msg:
+      "{{ command_before_output }}"

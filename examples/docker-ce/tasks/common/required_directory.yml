@@ -1,0 +1,12 @@
+---
+# required directory | docker-ce
+- name: required directory | docker-ce
+  file:
+    path: "{{ item.path }}"
+    owner: "{{ item.owner }}"
+    group: "{{ item.group }}"
+    mode: "{{ item.mode }}"
+    state: directory
+  with_items:
+    - "{{ required_directory }}"
+  when: required_directory != []

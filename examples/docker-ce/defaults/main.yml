@@ -1,0 +1,17 @@
+---
+docker_ce_version: "19.03.5-3.el7"
+
+docker_ce_required_package:
+- name: "docker-ce-{{ docker_ce_version }}"
+- name: yum-utils
+- name: device-mapper-persistent-data
+- name: lvm2
+
+docker_ce_required_directory:
+- path: /etc/docker
+  owner: root
+  group: root
+  mode: "0755"
+
+docker_ce_service: 
+- name: docker
