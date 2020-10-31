@@ -4,11 +4,14 @@
 required_package: []
 
 #cleanup
+cleanup_become_user: ""
 cleanup_local: []
 cleanup_remote: []
 
 #command
+command_after_become_user: ""
 command_after: []
+command_before_become_user: ""
 command_before: []
 
 #git

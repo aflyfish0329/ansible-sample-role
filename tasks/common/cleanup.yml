@@ -2,7 +2,7 @@
 # cleanup | local
 - name: cleanup | local
   become: True
-  become_user: root
+  become_user: "{{ cleanup_become_user if cleanup_become_user != '' | default(omit) }}"
   become_method: sudo
   file:
     path: "{{ item.path }}"
@@ -16,7 +16,7 @@
 # cleanup | remote
 - name: cleanup | remote
   become: True
-  become_user: root
+  become_user: "{{ cleanup_become_user if cleanup_become_user != '' | default(omit) }}"
   become_method: sudo
   file:
     path: "{{ item.path }}"
