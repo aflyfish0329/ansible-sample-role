@@ -1,0 +1,53 @@
+---
+# reset default variables
+- include_tasks: "{{ role_path }}/tasks/common/reset_default_variables.yml"
+
+# set variables
+- include_tasks: "{{ role_path }}/tasks/common/set_variables.yml"
+
+# include role mapping variables
+- include_tasks: "{{ role_path }}/tasks/common/include_mapping_variables.yml"
+
+# include variables
+- include_tasks: "{{ role_path }}/tasks/common/include_distribution_variables.yml"
+
+# include distribution
+- include_tasks: "{{ role_path }}/tasks/common/include_distribution_tasks.yml"
+
+# git
+- include_tasks: "{{ role_path }}/tasks/common/git_local.yml"
+- include_tasks: "{{ role_path }}/tasks/common/git_remote.yml"
+
+# required data | download
+- include_tasks: "{{ role_path }}/tasks/common/required_data_download_local.yml"
+- include_tasks: "{{ role_path }}/tasks/common/required_data_download_remote.yml"
+
+# required directory
+- include_tasks: "{{ role_path }}/tasks/common/required_directory.yml"
+
+# required data
+- include_tasks: "{{ role_path }}/tasks/common/required_data.yml"
+
+# unarchive data
+- include_tasks: "{{ role_path }}/tasks/common/unarchive_data.yml"
+
+# install package
+- include_tasks: "{{ role_path }}/tasks/distribution/{{ distribution }}/required_package.yml"
+
+# command before
+- include_tasks: "{{ role_path }}/tasks/common/command_before.yml"
+
+# required data after
+- include_tasks: "{{ role_path }}/tasks/common/required_data_after.yml"
+
+# systemd daemon reload
+- include_tasks: "{{ role_path }}/tasks/common/systemd_daemon_reload.yml"
+
+# command after
+- include_tasks: "{{ role_path }}/tasks/common/command_after.yml"
+
+# systemd
+- include_tasks: "{{ role_path }}/tasks/common/systemd.yml"
+
+# cleanup
+- include_tasks: "{{ role_path }}/tasks/common/cleanup.yml"

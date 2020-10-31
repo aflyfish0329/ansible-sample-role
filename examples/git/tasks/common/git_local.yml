@@ -1,0 +1,12 @@
+---
+- name: download repo
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
+    version: "{{ item.version | default('master') }}"
+    accept_hostkey: "{{ item.accept_hostkey | default('yes') }}"
+  with_items:
+    - "{{ git_repo_local }}"
+  when: git_repo_local != []
+  run_once: true
+  delegate_to: localhost

@@ -1,0 +1,2 @@
+---
+required_package: "{{ go_required_package }}"

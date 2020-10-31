@@ -1,0 +1,10 @@
+---
+# required data | download | remote
+- name: required data | download | remote
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ item.dest }}"
+    mode: "{{ item.mode | default('0644') }}"
+  with_items:
+    - "{{ required_data_download_remote }}"
+  when: required_data_download_remote != []

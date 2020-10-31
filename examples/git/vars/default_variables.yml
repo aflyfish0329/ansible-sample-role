@@ -1,0 +1,52 @@
+---
+# Variable for use
+#required_package
+required_package: []
+
+#cleanup
+cleanup_become_user: ""
+cleanup_local: []
+cleanup_remote: []
+
+#command
+command_after_become_user: ""
+command_after: []
+command_before_become_user: ""
+command_before: []
+
+#git
+git_repo_local: []
+git_repo_remote: []
+
+#make
+required_make: []
+
+#required_data_download
+required_data_download_local: []
+required_data_download_remote: []
+
+#required_data
+required_data: []
+required_data_template: []
+required_data_after: []
+required_data_template_after: []
+
+#required_directory
+required_directory: []
+
+#systemd_daemon_reload
+# type: string
+# parameters: "yes" | "no"
+systemd_daemon_reload: "no"
+
+#service
+service: []
+
+#unarchive_data
+unarchive_data: []
+
+#security_limit
+security_limit: []
+
+#sysctl_conf
+sysctl_conf: []

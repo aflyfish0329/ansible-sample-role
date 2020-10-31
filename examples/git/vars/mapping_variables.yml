@@ -1,0 +1,2 @@
+---
+required_package: "{{ git_required_package }}"

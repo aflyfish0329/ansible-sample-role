@@ -1,0 +1,11 @@
+---
+# required data | download | local
+- name: required data | download | local
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ item.dest }}"
+    mode: "{{ item.mode | default('0644') }}"
+  with_items:
+    - "{{ required_data_download_local }}"
+  when: required_data_download_local != []
+  delegate_to: localhost

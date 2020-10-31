@@ -1,0 +1,3 @@
+---
+git_required_package:
+- name: git
