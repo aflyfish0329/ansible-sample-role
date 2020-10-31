@@ -1,35 +1,10 @@
-# Role Name
-## <roles_name>
+# <roles_name>
 
-# Usage
-``` shell
-export INVENTORY=</path>/<to>/<inventory>
-export HN=<host_name>
-export PLAYBOOK=<path>/<to>/<playbook>
-
-ansible-playbook -i ${INVENTORY} -e "hn=${HN}" ${PLAYBOOK}
-```
-
-# Example Playbook
-``` yaml
-- hosts: '{{ hn }}'
-  roles:
-      - role: <roles_name>
-```
-
-# Example Inventory
-``` ini
-[<groupname>]
-<hostname> ansible_user=xxxx
-<hostname> ansible_user=xxxx
-<hostname> ansible_user=xxxx
-```
-
-# Variable for use
+## `Default Variables`
 
 * please see vars/mapping_variables.yml
 
-# Useage
+## `Usage`
 1. copy sample_roles to ur role name
 ``` shell
 cp samples_roles golang
@@ -43,7 +18,8 @@ cp samples_roles golang
 
 ``` shell
 # if os == centos_7
-mv golang/tasks/distribution/centos_7_x 
+mv golang/tasks/distribution/distribution_name golang/tasks/distribution/centos_7_x 
+
 mv golang/vars/distribution_name golang/vars/centos_7_x
 ```
 
@@ -67,4 +43,4 @@ golang_required_package:
 required_package: "{{ golang_required_package }}
 ```
 
-8. test user role
+8. test role
