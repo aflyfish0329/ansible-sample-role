@@ -50,3 +50,6 @@ security_limit: []
 
 #sysctl_conf
 sysctl_conf: []
+
+#firewalld_port_rules
+firewalld_port_rules: []

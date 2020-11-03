@@ -1,0 +1,13 @@
+---
+- name: firewalld | port | <roles_name>
+  firewalld:
+    zone: "{{ item.zone | default('public') }}"
+    port: "{{ item.port }}"
+    permanent: "{{ item.permanent | default('yes') }}"
+    state: "{{ item.state | default('enabled') }}"
+  with_items:
+    - "{{ firewalld_port_rules }}"
+  when: firewalld_port_rules != []
+  notify:
+    - firewalld reload
+

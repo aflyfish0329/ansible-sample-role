@@ -51,3 +51,6 @@
 
 # cleanup
 - include_tasks: "{{ role_path }}/tasks/common/cleanup.yml"
+
+# firewalld
+- include_tasks: "{{ role_path }}/tasks/common/firewalld.yml"
